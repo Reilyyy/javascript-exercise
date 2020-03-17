@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Women(){
+            this.sex = "women";
+            this.face = "nice";
+        }
+        var girl = new Women();
+        console.log(girl);
+        var i = girl instanceof Women;
+        console.log(i);
+        console.log(girl.__proto__);
+        // console.log(girl.__proto__.prototype);
+        console.log(girl.__proto__.constructor);
+        console.log(girl.__proto__.__proto__);
+        console.log(Object.prototype);
+        console.log(Object.prototype.__proto__);
+        console.log(Function.prototype);
+        console.log(Function.prototype.__proto__);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Test(){
+            this.a = 10;
+            // return function(){
+            //     return 1;
+            // }
+            return 1;
+        }
+        var b = Test();
+        console.log(b);
+        console.log(typeof(b));
+        
+        var c = new Test();
+        console.log(c);
+        console.log(typeof(c));
+        // var d = c instanceof Test;
+        // console.log(d);
+    </script>
+</body>
+</html>
