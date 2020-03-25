@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = [1,2,3];
+        var arr2 = [4,5,6];
+        var newarr = arr1.concat(arr2);
+        console.log(newarr);
+
+        var arr3 = ["ba","abcd","bd"];
+        //every()方法将数组的每一项传入到某函数中 返回值为true or false
+        //一个为false 整体为false 全为true才是true
+        //indexOf()方法判断字符串中含有某个字符时 返回的是字符第一次出现的下标 如果未匹配则返回-1
+        //判断数组中的每一项是否都含有b
+        var return1 = arr3.every(function(key){
+            return key.indexOf("b")!=-1;
+        })
+        console.log(return1);
+
+        var arr4 = 'hello';
+        console.log(arr4.indexOf('l'));
+
+        //some()顾名思义 只要有一个true则返回true
+        //判断数组中是否至少有一项含有b
+        var arr4 = ['cd','fe','gh','np'];
+        var return2 = arr4.some(function(key){
+            return key.indexOf('c')!=-1;
+        })
+        console.log(return2);
+
+        //filter()是过滤函数 为true则将元素添加进新数组 false则不添加 返回值是新数组
+        var arr5 = ['dd','dc','de','fg'];
+        var return3 = arr5.filter(function(key){
+            return key.indexOf('d')!=-1;
+        })
+        console.log(return3);
+
+        // reduce() 可以实现累加 相比forEach 其有返回值 而且不用专门定义一个初始的值
+        //pre是上一次运算的结果 cur为正在处理的数组元素 index为正在处理的元素的下标 arr为调用reduce方法的数组  1是初始值 不设置默认为0
+        var arr6 = [1,2,3,4,5];
+        var return4 = arr6.reduce(function(pre,cur,index,arr){
+            return pre*cur;
+        },1);
+        console.log(return4);
+    </script>
+</body>
+</html>

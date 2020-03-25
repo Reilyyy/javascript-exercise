@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var a = [1,2,3];
+        var b = new Array(7);
+        var c = new Array(6,7,8);
+       
+
+        console.log(a.length);//显示a数组的长度
+
+        for(let i=0;i<a.length;i++)//for循环
+        {
+            console.log(a[i]);
+        }
+        console.log(b.length);
+        console.log(b);
+        c.forEach(function(value,index,array){//forEach循环输出值 下标 当前遍历的数组
+            console.log(typeof(value));
+            console.log(index);
+            console.log(array);
+        })
+         
+        c.length = 7;//人为修改length的值
+        console.log(c.length);
+        console.log(c[4]);
+     
+        c.length = 0;
+        c = [];//手动将数组清零的方法
+        console.log(c.length);
+
+        var ret1 = a.push(4,5,6);//向数组后添加数据
+        var ret2 = a.unshift(-2,-1,0);//向数组前添加数据
+        console.log(a.length);
+        console.log(ret1);//查看返回值
+        console.log(ret2);
+
+        var ret3 = a.pop();//从数组后删除数据
+        console.log(ret3);
+        var ret4 = a.shift();//从数组前删除数据
+        console.log(ret4);
+
+      
+        let arr = [1, 2, 3];//slice()方法
+        let newArr = arr.slice(0,2);
+        arr.push(5);
+        console.log(arr);
+        console.log(newArr);
+
+        let arr1 = [1,2,3,4,5,6,7];//splice()方法
+        let new1 = arr1.splice(2,3,10,11);
+        console.log(new1);
+        console.log(arr1);
+
+    </script>
+</body>
+</html>

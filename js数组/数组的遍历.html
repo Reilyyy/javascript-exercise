@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [4,2,5,8,9];
+        arr["a"] = 10;
+        arr[7] = 7;
+
+        for(let i=0;i<arr.length;i++)
+        //for遍历 根据下标遍历 可以遍历空元素 但是不可以遍历非数字的下标
+        {
+            console.log(i,arr[i]);
+        }
+        console.log(arr.length);
+        console.log(arr["a"]);
+
+        console.log(Object.keys(arr));
+        console.log(JSON.stringify(Object.keys(arr)));//将对象转为字符串
+
+        //for in 循环 
+        for (let key in arr) {
+            console.log(key,arr[key]);
+        }
+        var str = "hello world";
+        for(let k in str){
+            console.log(k,str[k]);
+        }
+        
+        //for of 循环 遍历的结果是值 不是下标 不会遍历非数字下标 会遍历空元素
+        for( let value of arr){
+            console.log(value);
+        } 
+
+        //forEach 遍历 不能遍历空元素和非数字下标
+        var ret = arr.forEach(function(value,index,arr1){
+            console.log(value,index,arr1);
+        })
+        console.log(ret);
+        var arr1 = [1,2,3,4]
+        var ret1 = arr1.map((value,index,arr1)=>{
+            console.log(value,index,arr1);
+            return value;
+        })
+        console.log(ret1);
+    </script>
+</body>
+</html>
