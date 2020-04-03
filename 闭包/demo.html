@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//     var name = "The Window";
+// 　　 var object = {
+// 　　　　name : "My Object",
+// 　　　　getNameFunc : function(){
+// 　　　　　　return function(){
+// 　　　　　　　　return this.name;
+// 　　　　　　};
+// 　　　　}
+// 　　};
+// 　　alert(object.getNameFunc()());
+
+//    var name = "The Window";
+// 　　var object = {
+// 　　　　name : "My Object",
+// 　　　　getNameFunc : function(){
+// 　　　　　　var that = this;
+// 　　　　　　return function(){
+// 　　　　　　　　return that.name;
+// 　　　　　　};
+// 　　　　}
+// 　　};
+// 　　alert(object.getNameFunc()());
+
+    // var name = "window"; 
+    // var p = { 
+    //     name: 'Perter', 
+    //     getName: function() { // 利用变量保存的方式保证其访问的是p对象 
+    //         var self = this; 
+    //         return function() { return self.name; } 
+    //     }
+    // }
+    // var getName = p.getName();
+    // var _name = getName();
+    // console.log(getName);
+    // console.log(_name);
+
+    // function foo() {
+    //     var a = 20;
+    //     var b = 30;
+    //     function bar() {
+    //         return a + b;
+    //     }
+    //     return bar();
+    // }
+    // var bar = foo();
+    // console.log(bar);//50
+    // console.log(bar());//bar is not a function
+
+    // function foo() {
+    //     var a = 20;
+    //     var b = 30;
+    //     function bar() {
+    //         return a + b;
+    //     }
+    //     return bar;
+    // }
+    // var bar = foo();
+    // console.log(bar);//f bar()
+    // console.log(bar());//50
+
+    // for (var i=1; i<=5; i++) {
+    //     setTimeout( function timer() {
+    //         console.log(i);
+    //     }, i*1000 );
+    // }
+
+    // 输出1 2 3 4 5  方法一
+    // function out() {
+    //     var i = 1;
+    //     function inner() {
+    //         if(i<=5){
+    //             console.log(i);
+    //             i++;
+    //         }else{
+    //             clearInterval(stop);
+    //         }
+    //     }
+    //     return inner;
+    // }
+    // var review = out();
+    // var stop = setInterval( function timer() {
+    //        review();
+    //     },1000);
+
+    // var fn = null; 
+    // function foo() { 
+    //     var a = 2; 
+    //     function innnerFoo() { 
+    //         console.log(c); // 在这里，试图访问函数bar中的c变量，会抛出错误 
+    //         console.log(a); 
+    //     } 
+    //     fn = innnerFoo; // 将 innnerFoo的引用，赋值给全局变量中的fn 
+    // } 
+    // function bar() { 
+    //     var c = 100; 
+    //     fn(); // 此处的保留的innerFoo的引用 
+    // } 
+    // foo(); 
+    // bar();
+
+    function outerFun()
+        {
+            var a = 1;
+            a =0;
+            console.log(a);  
+        }
+    var a=4;
+    outerFun();
+    console.log(a);
+    </script>
+</body>
+</html>
