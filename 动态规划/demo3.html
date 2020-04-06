@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //动态规划 所有路径问题 左上角要到达右下角 只能向右或向下走 一次只能走一步 
+        //向上向左扩展一行和一列
+        function mapPaths(m,n){
+            var arrRow = new Array(m+1);
+            for(let i=0;i<=m;i++){
+                arrRow[i] = new Array(n+1);
+            }
+
+            for(let j=0;j<=n;j++){
+                arrRow[0][j]=0;
+            }
+
+            for(let i=0;i<=m;i++){
+                arrRow[i][0]=0;
+            }
+
+            arrRow[1][1]=1;
+
+            for(let i=1;i<=m;i++){
+                for(let j=1;j<=n;j++){
+                    if( i==1 && j==1){
+                        continue;
+                    }
+                    arrRow[i][j]=arrRow[i-1][j]+arrRow[i][j-1];
+                }
+            }
+
+            return arrRow[m][n];
+        }
+        console.log(mapPaths(3,3));
+    </script>
+</body>
+</html>

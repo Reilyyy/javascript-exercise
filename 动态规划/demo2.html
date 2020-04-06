@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //有n个台阶 一次只能上一步 或者两步 问上到第n阶有几种办法
+        function climb(n){
+            var arr = [];
+             arr[0]=1;
+             arr[1]=2;
+
+             for(let i=2;i<n;i++)
+             {
+                 arr[i]=arr[i-1]+arr[i-2];
+             }
+             return arr[n-1];
+        }
+        console.log(climb(3));
+    </script>
+</body>
+</html>
