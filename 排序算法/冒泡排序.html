@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //冒泡排序
+        //稳定性：稳定  空间复杂度： O(n)  时间复杂度：O(n*n)
+        //适合基本有序的数组 基本操作：每趟找到最大的放到后面
+
+        var arr = [3,2,5,8,7,4,9,1];
+
+        function sort(arr1){
+            let len = arr1.length;
+            let tag;
+            
+            for(let i=0;i<len-1;i++){
+                tag = 0;
+                for(let j=0;j<len-1-i;j++){
+                    if(arr1[j]>arr1[j+1]){
+                        tag = 1;
+                        [arr1[j],arr1[j+1]]=[arr[j+1],arr1[j]]
+                    }
+                }
+                if(!tag){
+                    break;
+                }
+            }
+            return arr1;
+        }
+
+        console.log(sort(arr));
+    </script>
+</body>
+</html>

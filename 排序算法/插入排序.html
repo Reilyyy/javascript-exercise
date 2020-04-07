@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //插入排序 
+        //稳定的 空间复杂度：O(n)  时间复杂度：O(n*n)
+        var arr = [3,2,5,8,7,4,9,1];
+
+        function sort(arr1) {
+            let len = arr1.length;
+            let tog;
+            for(let i=1;i<len;i++){
+                tog = arr1[i];
+                for(let j=i-1;j>=0;j--){
+                    if(arr1[j]>tog){
+                        [arr1[j],arr1[j+1]]=[arr1[j+1],arr1[j]];
+                    }
+                }
+            }
+            return arr1;
+        }
+        console.log(sort(arr));
+    </script>
+</body>
+</html>
