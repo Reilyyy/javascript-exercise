@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //选择排序 
+        // 在各种情况下复杂度波动小，因此一般是优于冒泡排序 时间复杂度 O(n*n)
+
+        var arr = [3,2,5,8,4,7,9,6,1];
+
+        function sort(arr1){
+            var len = arr1.length;
+            var set;
+            for(let i=0;i<len-1;i++){
+                set = i;
+                for(let j=i+1;j<len;j++){
+                    if(arr1[j]<arr1[set]){
+                        set=j;
+                    }
+                }
+                [arr1[i],arr1[set]]=[arr1[set],arr1[i]]
+            }
+            return arr1;
+        }
+
+        console.log(sort(arr));
+    </script>
+</body>
+</html>
