@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(n,k,arr){
+            for(let i=0;i<arr.length-1;i++){
+                let set = i;
+                for(let j=i+1;j<arr.length;j++){
+                    if(arr[j]<arr[set]){
+                        set = j;
+                    }
+                }
+                [arr[i],arr[set]] = [arr[set],arr[i]];
+            }
+            let num1 = Math.floor(k/n);
+            let num2 = (k%n)-1;
+            let arr1 = [];
+            arr1.push(arr[num1],arr[num2]);
+            return arr1;
+        }
+       console.log(sort(3,4,[3,1,2]));
+    </script>
+</body>
+</html>

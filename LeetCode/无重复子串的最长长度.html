@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var lengthOfLongestSubstring = function(s) {
+        let arr = [];
+        let max = 0;
+        for(item of s){
+            if(arr.includes(item)){
+                let i = arr.indexOf(item);
+                arr.splice(0,i+1);
+            }
+            arr.push(item);
+            max = max>arr.length?max:arr.length;
+        }
+        return max;
+};
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ring(a,b,m,x){
+            const tag = x;
+            let num = 0;
+            x = (a*x+b)%m;
+            num +=1;
+            while(x!=tag){
+                x = (a*x+b)%m;
+                num +=1;
+            }
+            return num;
+        }
+       
+    </script>
+</body>
+</html>
