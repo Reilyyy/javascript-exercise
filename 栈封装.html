@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Stack(){
+
+            item = [];
+
+            //压栈操作
+            this.push = function(element) {
+                 item.push(element);
+            }
+
+            //出栈操作
+            this.pop = function() {
+                return item.pop();
+            }
+
+            //查看栈顶元素
+            this.peek = function(){
+                return item[item.length-1];
+            }
+
+            //判断栈中是否为空
+            this.isEmpty = function(){
+                return item.length == 0;
+            }
+
+            //栈中元素的个数
+            this.size = function(){
+                return item.length;
+            }
+        }
+
+        //栈的应用 十进制向二进制转换
+        function dec2bin (decnumber){
+            var stack = new Stack();
+            var remainder;
+
+            //循环除法
+            while(decnumber){
+                remainder = decnumber % 2;
+                decnumber = Math.floor(decnumber/2);
+                stack.push(remainder);
+            }
+
+            //取出数据
+            var bingo = "";
+            while(!stack.isEmpty()){
+                bingo += stack.pop();
+            }
+            return bingo;
+        }
+
+        console.log(dec2bin(10));
+    </script>
+</body>
+</html>
