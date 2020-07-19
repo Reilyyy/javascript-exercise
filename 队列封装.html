@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //普通队列
+        function Queue() {
+            var items = [];
+
+            //从队列尾部插入元素
+            this.enqueue = function(element){
+                items.push(element);
+            }
+
+            //从头部删除元素
+            this.dequeue = function (){
+                return items.shift();
+            }
+
+            //查看前端的元素
+            this.front = function (){
+                return items[0];
+            }
+
+            //查看队列是否为空
+            this.isEmpty = function (){
+                return items.length ==0;
+            }
+
+            //查看队列中元素的个数
+            this.size = function (){
+                return items.length;
+            }
+        }
+
+        // var queue = new Queue();
+
+        // queue.enqueue("abc");
+        // queue.enqueue("def");
+        // queue.enqueue("zxy");
+
+        // console.log(queue.size());
+
+        // alert(queue.dequeue());
+        // alert(queue.dequeue());
+        // alert(queue.dequeue());
+
+        //优先级队列 假设数字越小优先级越高
+        function PriorityQueue() {
+            var items = [];
+
+            //封装一个新的构造函数 用来保存元素和元素的优先级
+            function QueueElement(element,priority){
+                this.element = element;
+                this.priority = priority;
+            }
+
+            //添加元素
+            this.enqueue = function (element,priority){
+                //创建优先级队列元素
+                var queueElement = new QueueElement(element,priority);
+
+                //比较确定位置
+                if(items.length==0){
+                    items.push(queueElement);
+                }else {
+                    var addtage = false;
+                    for(var i = 0;i < items.length;i++){
+                        if(queueElement.priority<items[i].priority){
+                            items.splice(i,0,queueElement);
+                            addtage = true;
+                            break;
+                        }
+                    }
+                    if(!addtage){
+                        items.push(queueElement);
+                    }
+                }
+            }
+            // 删除元素
+             this.dequeue = function () {
+                    return items.shift()
+            }
+
+            // 获取前端元素
+            this.front = function () {
+                    return items[0]
+            }
+            // 获取元素的个数
+            this.size = function () {
+                    return items.length
+            }
+    }
+    //队列的应用 击鼓传花
+    function passGame(nameList,num) {
+        //创建队列 将所有人放在队列中
+        var queue = new Queue();
+
+        //通过for循环 放人
+        for(let i=0;i<nameList.length;i++){
+            queue.enqueue(nameList[i]);
+        }
+
+        while(queue.size()>1){
+            for(let i = 1; i < num; i++){
+                queue.enqueue(queue.dequeue());
+            }
+            //将第num个人删除
+            queue.dequeue();
+        }
+        let endname = queue.dequeue();
+        return nameList.indexOf(endname);
+    }
+
+//测试
+var names = ['John','Jack','Camila','Ingrid','Carl'];
+var index = passGame(names, 8); // 数到8的人淘汰
+alert("最终位置:" + index);
+    
+
+
+
+
+    </script>
+</body>
+</html>
