@@ -7,7 +7,28 @@
 </head>
 <body>
     <script>
-        
+        // let dp = Array.from(new Array(3),()=>new Array(3).fill(0));
+        // dp[1][1] = 1;
+        // console.log(dp);
+
+        // let s = "123456";
+        // console.log(s.substr(0,1));
+
+        //力扣代码
+        var longestPalindrome = function(s) {
+        let result = "";
+        let n = s.length;
+        let dp = Array.from(new Array(n),()=>new Array(n).fill(0));//生成二维数组 填充所有值为0
+        for(let i = n-1;i >= 0;i--){ //i从最大值开始遍历 j从小往大遍历
+            for(let j=i; j < n;j++){
+                dp[i][j]=(s[i]===s[j]&&(j-i<2||dp[i+1][j-1]));
+                if(dp[i][j]&&j-i+1>result.length){
+                    result = s.substr(i,j-i+1);
+                }
+            }
+        }
+    return result;
+};
     </script>
 </body>
 </html>
