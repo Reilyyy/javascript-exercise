@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //二分查找的模板
+        // let start = 0,end = nums.length-1;
+        // while(start+1 < end){
+        //     let mid = start + (end-start)/2;
+
+        //     if(...){
+        //         start = mid;
+        //     }else{
+        //         end = mid;
+        //     }
+        // }
+
+var mySqrt = function(x) {
+    let start = 0;
+    let end = x;
+    let mid = 0;
+    let qr = 0;
+    if(x==0||x==1) return x;
+    while(start < end){
+        mid = Math.floor((start + end)/2);
+        qr = mid*mid;
+        if(qr==x||(qr < x&&(mid+1)*(mid+1)>x)){
+            return mid;
+        }
+        if(qr < x){
+            start = mid+1;
+        }else{
+            end = mid-1;
+        }
+    }
+    return start;
+};
+    </script>
+</body>
+</html>
