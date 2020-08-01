@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var t = 200;
+var n = 8;
+var arr1 = Array.from(new Array(n),()=>new Array(2).fill(0));
+arr1[0][0] = 79;
+arr1[0][1] = 83;
+arr1[1][0] = 58;
+arr1[1][1] = 81;
+arr1[2][0] = 86;
+arr1[2][1] = 54;
+arr1[3][0] = 110;
+arr1[3][1] = 150;
+arr1[4][0] = 62;
+arr1[4][1] = 52;
+arr1[5][0] = 45;
+arr1[5][1] = 48;
+arr1[6][0] = 68;
+arr1[6][1] = 62;
+arr1[7][0] = 30;
+arr1[7][1] = 22;
+var wn = 0;
+
+function searchmax(arr,n){
+    var max = [];
+    for(let i=0; i<n ;i++){
+        if(arr[i][1]>max){
+            max[0]= arr[i][0];
+            max[1]= arr[i][1];
+            max[2]= i;
+        }
+    }
+    return max;
+}
+
+function searchmin(arr,n){
+    var min = arr[0][0];
+    for(let i=1;i<n;i++){
+        if(arr[i][0]<min){
+            min = arr[i][0];
+        }
+    }
+    return min;
+}
+
+var min1 = searchmin(arr1,n);
+while(t > min1){
+    var tem = [];
+    tem = searchmax(arr1,n);
+    t = t-tem[0];
+    wn += tem[1];
+    let j = tem[2];
+    arr1[j][0] = 0;
+    arr1[j][1] = 0;
+}
+
+console.log(wn);
+    </script>
+</body>
+</html>
