@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let str = "we are happy";
+        // console.log(str.length);
+    //     let sum = 0;
+    // for(let i=0;i<str.length;i++){
+    //     if(str[i]==" "){
+    //         sum++;
+    //     }
+    // }
+    // console.log(sum);
+
+    var replaceSpace = function(s) {
+    if(!s || !s.length){
+        return "";
+    }
+    let sum = 0;
+    for(let i=0;i<s.length;i++){
+        if(s[i]==" "){
+            sum++;
+        }
+    }
+    let newlen = sum*2+s.length;
+    let str = new Array(newlen);
+    let newtail = newlen-1;
+    let tail = s.length-1;
+    while(tail>=0){
+        if(s[tail]!=" "){
+            str[newtail]=s[tail];
+            newtail--;
+            tail--;
+        }else{
+            tail--;
+            newtail=help(newtail,str);
+        }
+    }
+    return str.join("");
+};
+
+function help(tail,str){
+    str[tail] = "0";
+    str[tail-1] = "2";
+    str[tail-2] = "%";
+    return tail-3;
+}
+    </script>
+
+</body>
+</html>

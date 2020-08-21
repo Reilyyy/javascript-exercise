@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var findNumberIn2DArray = function(matrix, target) {
+   if(matrix.length<1 || matrix[0].length<1){
+       return false;
+   }
+   if(target<matrix[0][0]||target>matrix[matrix.length-1][matrix[0].length-1]){
+       return false;
+   }
+    let row = 0;
+    let col = matrix[0].length-1;
+    while(row<matrix.length&&col>=0){
+        let num = matrix[row][col];
+        if(target === num){
+            return true;
+        }else if(target>num){
+            row++;
+        }else{
+            col--;
+        }
+    }
+    return false;
+};
+    </script>
+</body>
+</html>
