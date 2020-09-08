@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var minArray = function(numbers) {
+   if(numbers.length===0){
+       return -1;
+   }
+   if(numbers.length===1){
+       return numbers[0];
+   }
+
+   let index1 = 0;
+   let index2 = numbers.length-1;
+   let indexmid = 0;
+
+   while(numbers[index1]>=numbers[index2]){
+       if(index2-index1==1){
+           indexmid = index2;
+           break;
+       }
+
+       indexmid = Math.floor((index2-index1)/2);
+       if(numbers[index1]==numbers[indexmid]&&numbers[index2]==numbers[indexmid]){
+           return numbers.sort(function(a,b){return a-b;})[0];
+       }
+
+       if(numbers[index1]<=numbers[indexmid]){
+           index1 = indexmid;
+       }else if(numbers[indexmid]<=numbers[index2]){
+           index2 = indexmid;
+       }
+   }
+   return numbers[indexmid];
+};
+    </script>
+</body>
+</html>
