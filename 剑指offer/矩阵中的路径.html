@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var exist = function(board, word) {
+    const xlen = board.length;
+    const ylen = board[0].length;
+    let k = 0;
+    for(let x=0;x<xlen;x++){
+        for(let y=0;y<ylen;y++){
+            if(findFun(board,word,x,y,k,xlen,ylen)){
+                return true;
+            }
+        }
+    }
+    return false;
+};
+
+function findFun(board,word,x,y,k,xlen,ylen){
+    if(x<0||x>=xlen||y<0||y>=ylen||board[x][y]!=word[k]){
+        return false;
+    }
+    if(k==word.length-1){
+        return true;
+    }
+    let temp = board[x][y];
+    board[x][y] = "-";
+    let res = findFun(board,word,x-1,y,k+1,xlen,ylen)||findFun(board,word,x,y+1,k+1,xlen,ylen)||findFun(board,word,x+1,y,k+1,xlen,ylen)||findFun(board,word,x,y-1,k+1,xlen,ylen);
+    board[x][y] = temp;
+    return res;
+}
+    </script>
+</body>
+</html>
